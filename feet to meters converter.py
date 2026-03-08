@@ -1,5 +1,8 @@
+from curses.ascii import isdigit
+
 from customtkinter import *
 import customtkinter as ctk
+from tkinter import messagebox
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -10,10 +13,13 @@ app.geometry("600x200")
 app.resizable(False , False)
 #function
 def convert():
-    feet = float (label1_entry.get())
-    meters = feet / 3.281
-    label2_output.set(meters)
-
+    try:
+        feet = float (label1_entry.get())
+        meters = feet / 3.281
+        label2_output.set(meters)
+        
+    except ValueError:
+        messagebox.showerror("Invalid input", "Please enter a valid number for feet.")
 #create widget <error>
 lable1 = ctk.CTkLabel(
     master=app , text= "Feets", font=ctk.CTkFont(family="Arial", size=15 , weight="bold")) 
@@ -28,7 +34,7 @@ lable2.place(
     relx=0.5, rely=0.6, anchor="center" )
 label2_output = ctk.StringVar()
 button1 = ctk.CTkButton(
-    master=app, text="Convert" ,command=convert ,width=100 , height=40,font=ctk.CTkFont(family="Arial", size=15 , weight="bold" ) )
+    master=app, text="Convert" , corner_radius=30 ,command=convert ,width=100 , height=40,font=ctk.CTkFont(family="Arial", size=15 , weight="bold" ) )
 button1.place(
     relx=0.7, rely=0.6, anchor="center")
 

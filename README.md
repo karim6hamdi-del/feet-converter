@@ -30,8 +30,7 @@ A simple Python GUI application that converts **Feet to Meters** using CustomTki
 
 Clone the repository:
 
-git clone https://github.com/karim6hamdi-del
-/feet-converter.git
+git clone https://github.com/karim6hamdi-del/feet-converter.git
 
 Go to the project folder:
 
